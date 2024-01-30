@@ -17,6 +17,7 @@ class SecondActivity : AppCompatActivity() {
         val text = intent.getStringExtra("username")
         binding.toolbar.setNavigationOnClickListener {
             finish()
+            //hello world
         }
         loadImageText()
         binding.toolbar.title = text ?: "Empty"
