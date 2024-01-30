@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+
+            </Space>
+
+            <ImageView
+                android:layout_width="238dp"
+                android:layout_height="145dp"
+                android:layout_gravity="center"
+                android:background="@drawable/logo_mine">
+
+            </ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="Diyorbekk"
+                android:textColor="@color/black"
+                android:textSize="46sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="12dp">
+
+            </Space>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Whatever you do, do it well"
+                android:textColor="@color/black"
+                android:textSize="20sp">
+
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|bottom"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="Sign in or create an account"
+                android:textColor="#5A5A5A">
+
+            </TextView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp">
+
+            </Space>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/user_name_edit_layout"
+                android:layout_width="375dp"
+                android:layout_height="56dp"
+                android:hint="Username"
+                app:endIconCheckable="true"
+                app:endIconMode="clear_text"
+                app:helperTextTextColor="@color/blue"
+                app:startIconDrawable="@drawable/baseline_person_outline_24"
+                app:startIconTint="#673AB6">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_name_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingStart="44dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp">
+
+            </Space>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_edit_layout"
+                android:layout_width="375dp"
+                android:layout_height="56dp"
+                android:hint="Password"
+                app:passwordToggleEnabled="true"
+                app:startIconDrawable="@drawable/baseline_lock_24"
+                app:startIconTint="#673AB6">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_edit"
+                    android:layout_width="375dp"
+                    android:layout_height="50dp"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:paddingStart="44dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="36dp">
+
+            </Space>
+
+            <LinearLayout
+                android:id="@+id/accept_layout_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <CheckBox
+                    android:id="@+id/accept_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="20dp"
+                    android:text="Foydalanish shartlariga rozimisiz"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/continue_button"
+                android:layout_width="375dp"
+                android:layout_height="44dp"
+                android:background="@drawable/new_bg"
+                android:fontFamily="sans-serif"
+                android:text="Continue"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+
+            </Space>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="Sign in"
+                android:textColor="#8000EE" />
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+
+            </Space>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
