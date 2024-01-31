@@ -17,6 +17,7 @@
         app:titleTextColor="@color/white"
         tools:title="Username" />
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -82,7 +83,7 @@
                 android:id="@+id/name_0"
                 android:layout_width="44dp"
                 android:layout_height="44dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/button_for_text"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -93,7 +94,7 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/button_for_text"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -104,7 +105,7 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/button_for_text"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -115,7 +116,7 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/button_for_text"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -126,7 +127,7 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/button_for_text"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -137,7 +138,7 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/button_for_text"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -148,7 +149,7 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/button_for_text"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -159,26 +160,27 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/button_for_text"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 tools:text="8" />
         </LinearLayout>
 
+
         <LinearLayout
             android:id="@+id/characters_ly_1"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
+            android:layout_width="395dp"
             android:layout_below="@id/name_ly"
-            android:layout_marginTop="24dp"
+            android:layout_height="68dp"
+            android:layout_marginTop="56dp"
             android:gravity="center">
 
             <TextView
                 android:id="@+id/character_0"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@color/purple_pressed"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -186,10 +188,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/character_1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -197,10 +199,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/character_2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -208,10 +210,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/character_3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -219,10 +221,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/character_4"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -230,10 +232,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/character_5"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -241,14 +243,25 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/character_6"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 tools:text="7" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/character_7"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/text_bg"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                tools:text="8" />
 
 
         </LinearLayout>
@@ -256,16 +269,16 @@
         <LinearLayout
             android:id="@+id/characters_ly_2"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="43dp"
             android:layout_below="@id/characters_ly_1"
             android:layout_marginTop="8dp"
             android:gravity="center">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/character_9"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@color/purple_pressed"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -273,10 +286,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/character_10"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -284,10 +297,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/character_11"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -295,10 +308,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/character_12"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -306,10 +319,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/character_13"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -317,10 +330,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/character_14"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -328,10 +341,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/character_15"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
                 android:layout_marginStart="4dp"
-                android:background="@color/purple_pressed"
+                android:background="@drawable/text_bg"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="18sp"
