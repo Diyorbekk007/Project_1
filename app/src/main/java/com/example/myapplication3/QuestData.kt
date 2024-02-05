@@ -14,23 +14,25 @@ data class QuestData(
     val word: String
 )
 
-fun loadQuest():List<QuestData>{
-    val ls=ArrayList<QuestData>()
+fun loadQuest(): List<QuestData> {
+    val ls = ArrayList<QuestData>()
     ls.add(
         QuestData(
             imageOne = R.drawable.animal1,
             imageTwo = R.drawable.animal2,
             imageThree = R.drawable.animal3,
             imageFour = R.drawable.animal4,
-            word = "Dog"
+            word = "Animal"
         )
     )
-    ls.add(QuestData(
-        imageOne = R.drawable.dog_2,
-        imageTwo = R.drawable.dog,
-        imageThree = R.drawable.dog_2,
-        imageFour = R.drawable.dog,
-        word = "Animal"
-    ))
+    ls.add(
+        QuestData(
+            imageOne = R.drawable.car1,
+            imageTwo = R.drawable.car2,
+            imageThree = R.drawable.car3,
+            imageFour = R.drawable.car4,
+            word = "Car"
+        )
+    )
     return ls
 }

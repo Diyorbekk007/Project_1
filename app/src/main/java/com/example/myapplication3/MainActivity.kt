@@ -31,18 +31,18 @@ class MainActivity : AppCompatActivity() {
             val password = binding.passwordEdit.text.toString()
             binding.acceptLayoutCheckbox.visibility = View.VISIBLE
 
-            Log.e("TESTS","${username} $password")
+            Log.e("TESTS", "${username} $password")
 
 
             if (isCheckUsername(username) && isCheckPassword(password)) {
 
-                Log.e("TESTS","YES1")
+                Log.e("TESTS", "YES1")
 
                 if (isSuccess) {
-                    Log.e("TESTS","YES2")
+                    Log.e("TESTS", "YES2")
 
                     if (binding.acceptCheckbox.isChecked) {
-                        Log.e("TESTS","YES3")
+                        Log.e("TESTS", "YES3")
 
                         Toast.makeText(this, "Success passed", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, SecondActivity::class.java)
@@ -74,40 +74,40 @@ class MainActivity : AppCompatActivity() {
 
     private fun isCheckUsername(userName: String): Boolean {
 
-        var a=true
+        var a = true
 
         if (userName.isBlank())
-            a= false
+            a = false
 
         if (userName.length !in 3..20)
-            a= false
+            a = false
 
         if (!userName.matches(Regex(".*[A-Z].*")))
-            a= false
+            a = false
 
         if (!userName.matches(Regex(".*[a-z].*")))
-            a=false
+            a = false
         return a
     }
 
     private fun isCheckPassword(passWord: String): Boolean {
 
-        var a=true
+        var a = true
 
         if (passWord.isBlank())
-            a= false
+            a = false
 
         if (passWord.length < 8)
-            a= false
+            a = false
 
         if (!passWord.matches(Regex(".*[A-Z].*")))
-            a= false
+            a = false
 
         if (!passWord.matches(Regex(".*[a-z].*")))
-            a= false
+            a = false
 
         if (!passWord.matches(Regex(".*[0-9].*")))
-            a= false
+            a = false
 
         return a
     }
