@@ -1,9 +1,11 @@
 package com.example.myapplication3
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.core.view.isVisible
 import com.example.myapplication3.QuestData
@@ -74,7 +76,11 @@ class SecondActivity : AppCompatActivity() {
                 currentIndex++
                 initializeNewWord()
             } else {
-                //startNewActivity
+                val nextPage3 = findViewById<Button>(R.id.next_btn)
+                nextPage3.setOnClickListener() {
+                    val intent = Intent(this, ThirdActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
 
