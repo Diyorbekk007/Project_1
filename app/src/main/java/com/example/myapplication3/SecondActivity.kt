@@ -2,9 +2,14 @@ package com.example.myapplication3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.view.isVisible
+import com.example.myapplication3.QuestData
+import com.example.myapplication3.SymbolData
 import com.example.myapplication3.databinding.ActivitySecondBinding
+import com.example.myapplication3.loadQuest
 import kotlin.random.Random
 
 class SecondActivity : AppCompatActivity() {
@@ -12,13 +17,17 @@ class SecondActivity : AppCompatActivity() {
     private var _binding: ActivitySecondBinding? = null
     private val binding: ActivitySecondBinding get() = _binding!!
     private val lsCurrentCharacters = ArrayList<SymbolData>(8)
+    private val lsQuest = loadQuest()
     private var removeCount = 3
     private var openCount = 1
-    private var imageWord = "animal"
+    private var currentData: QuestData? = null
+    private var correctCount = 0
+    private var currentIndex = 0
+    private var existElementCount = 0
 
     private var inputLs = Array(8) {
         SymbolData(
-            -1,' '
+            -1, ' '
         )
     }
 
@@ -26,21 +35,111 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val text = intent.getStringExtra("username")
-        binding.toolbar.setNavigationOnClickListener {
-            finish()
-            //hello world
-        }
-        initialWord()
-        submitSymbol()
-        characterClickable()
-        wordClickable()
-        loadImageText()
-        binding.toolbar.title = text ?: "Empty"
+//        val text = intent.getStringExtra("username")
+//        binding.toolbar.setNavigationOnClickListener {
+//            finish()
+//        }
+//        binding.toolbar.title = text ?: "Empty"
+        initializeNewWord()
+        loadUiClickable()
     }
 
+    private fun loadUiClickable() {
+        characterClickable()
+        currentWordCharacterClickable()
+        binding.nextBtn.setOnClickListener {
+            /**
+             * barcha so`zlar to`ldirilganmi
+             */
+            if (existElementCount < (currentData?.word?.length ?: 0)) {
+                Toast.makeText(this, "Belgilani to`ldiring", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            /**
+             * so`z tog`ri kiritilganmi
+             */
+            var currentText = ""
+            inputLs.forEach {
+                currentText += it.character
+            }
+            if ((currentData?.word ?: "").equals(currentText.trim(), true)) {
+                correctCount++
+            }
+
+            /**
+             * list malumotlari tugadi
+             */
+            if (currentIndex < lsQuest.size) {
+                currentIndex++
+                initializeNewWord()
+            } else {
+                //startNewActivity
+            }
+        }
+
+        binding.helpOpenBtn.setOnClickListener {
+            if (openCount <= 0) {
+                return@setOnClickListener
+            }
+            openCount--
+            existElementCount++
+            var i = 0
+            while (i < 8) {
+                if (inputLs[i].id == -1) {
+                    inputLs[i] =
+                        SymbolData(8, currentData?.word?.uppercase()?.getOrNull(i) ?: ' ', false)
+                    i = 8
+                }
+                i++
+            }
+            setSymbols()
+        }
+
+        binding.helpRemoveBtn.setOnClickListener {
+            if (removeCount <= 0)
+                return@setOnClickListener
+            lsCurrentCharacters.forEach {
+                if (currentData?.word?.contains(it.character, true) == false && it.isShow) {
+                    it.isShow = false
+                    removeCount--
+                    relieseCurrentWordVisibility()
+                    return@setOnClickListener
+                }
+            }
+        }
+    }
+
+    /**
+     * initial word
+     */
+    private fun initializeNewWord() {
+        existElementCount = 0
+        currentData = lsQuest[currentIndex]
+        inputLs = Array(8) {
+            SymbolData(
+                -1, ' '
+            )
+        }
+        loadImageText()
+        loadImage(currentData ?: lsQuest[currentIndex])
+        initialWord()
+        submitSymbol()
+    }
+
+    /**
+     * sozga kerakli belgilarni ko`rsatib beruvchi funksiya
+     */
     private fun loadImageText() {
-        val size = imageWord.length
+        val size = currentData?.word?.length ?: 0
+        binding.name0.text = ""
+        binding.name1.text = ""
+        binding.name2.text = ""
+        binding.name3.text = ""
+        binding.name4.text = ""
+        binding.name5.text = ""
+        binding.name6.text = ""
+        binding.name7.text = ""
         binding.name0.isVisible = size > 0
         binding.name1.isVisible = size > 1
         binding.name2.isVisible = size > 2
@@ -49,12 +148,25 @@ class SecondActivity : AppCompatActivity() {
         binding.name5.isVisible = size > 5
         binding.name6.isVisible = size > 6
         binding.name7.isVisible = size > 7
-
     }
 
+    /**
+     * bu imagelarni joylashtiradigan funksiya
+     */
+    private fun loadImage(data: QuestData) {
+        binding.image1.setImageResource(data.imageOne)
+        binding.image2.setImageResource(data.imageTwo)
+        binding.image3.setImageResource(data.imageThree)
+        binding.image4.setImageResource(data.imageFour)
+    }
+
+    /**
+     * bu so`zda bor belgilarni va boshqa beligilar listini yasab beruvchi funksiya
+     */
     private fun initialWord() {
+        lsCurrentCharacters.clear()
         val lsCharacters = ArrayList<Char>()
-        imageWord.uppercase().forEach {
+        (currentData?.word ?: "").uppercase().forEach {
             lsCharacters.add(
                 it
             )
@@ -73,13 +185,20 @@ class SecondActivity : AppCompatActivity() {
                 )
             )
         }
+        relieseCurrentWordVisibility()
     }
 
+    /**
+     * bu ixtiyoriy biror belgini oluvchi funksiya
+     */
     private fun getCharRandom(): Char {
         val index = Random.nextInt(65, 91)
         return index.toChar()
     }
 
+    /**
+     * bu so`zni yasash uchun kerak bo`ladigan beligilarni soluvchi funksiya
+     */
     private fun submitSymbol() {
         binding.character0.text = (lsCurrentCharacters.getOrNull(0)?.character ?: "").toString()
         binding.character1.text = (lsCurrentCharacters.getOrNull(1)?.character ?: "").toString()
@@ -98,57 +217,66 @@ class SecondActivity : AppCompatActivity() {
         binding.character15.text = (lsCurrentCharacters.getOrNull(15)?.character ?: "").toString()
     }
 
+    /**
+     *  bu so`zni quradigan belgilar bosilish funksinalligi
+     */
     private fun characterClickable() {
         binding.character0.setOnClickListener {
-            clickCharacter(it, 0)
+            clickShuffleCharacter(it, 0)
         }
         binding.character1.setOnClickListener {
-            clickCharacter(it, 1)
+            clickShuffleCharacter(it, 1)
         }
         binding.character2.setOnClickListener {
-            clickCharacter(it, 2)
+            clickShuffleCharacter(it, 2)
         }
         binding.character3.setOnClickListener {
-            clickCharacter(it, 3)
+            clickShuffleCharacter(it, 3)
         }
         binding.character4.setOnClickListener {
-            clickCharacter(it, 4)
+            clickShuffleCharacter(it, 4)
         }
         binding.character5.setOnClickListener {
-            clickCharacter(it, 5)
+            clickShuffleCharacter(it, 5)
         }
         binding.character6.setOnClickListener {
-            clickCharacter(it, 6)
+            clickShuffleCharacter(it, 6)
         }
         binding.character7.setOnClickListener {
-            clickCharacter(it, 7)
+            clickShuffleCharacter(it, 7)
         }
 
         binding.character9.setOnClickListener {
-            clickCharacter(it, 9)
+            clickShuffleCharacter(it, 9)
         }
         binding.character10.setOnClickListener {
-            clickCharacter(it, 10)
+            clickShuffleCharacter(it, 10)
         }
         binding.character11.setOnClickListener {
-            clickCharacter(it, 11)
+            clickShuffleCharacter(it, 11)
         }
         binding.character12.setOnClickListener {
-            clickCharacter(it, 12)
+            clickShuffleCharacter(it, 12)
         }
         binding.character13.setOnClickListener {
-            clickCharacter(it, 13)
+            clickShuffleCharacter(it, 13)
         }
         binding.character14.setOnClickListener {
-            clickCharacter(it, 14)
+            clickShuffleCharacter(it, 14)
         }
         binding.character15.setOnClickListener {
-            clickCharacter(it, 15)
+            clickShuffleCharacter(it, 15)
         }
 
     }
 
-    private fun clickCharacter(view: View, index: Int) {
+    /**
+     *  bu so`zni yasash uchun kerak bo`ladigan belgilar bosilishi
+     */
+    private fun clickShuffleCharacter(view: View, index: Int) {
+        if (existElementCount >= (currentData?.word ?: "").length)
+            return
+        existElementCount++
         view.visibility = View.INVISIBLE
         lsCurrentCharacters[index].isShow = false
         var i = 0
@@ -159,11 +287,10 @@ class SecondActivity : AppCompatActivity() {
             }
             i++
         }
-        checkWord()
+        relieseCurrentWordVisibility()
     }
 
-    private fun checkWord() {
-
+    private fun relieseCurrentWordVisibility() {
         lsCurrentCharacters.forEach { symbolData ->
             when (symbolData.id) {
                 0 -> binding.character0.visibility =
@@ -190,7 +317,6 @@ class SecondActivity : AppCompatActivity() {
                 7 -> binding.character7.visibility =
                     if (symbolData.isShow) View.VISIBLE else View.INVISIBLE
 
-
                 9 -> binding.character9.visibility =
                     if (symbolData.isShow) View.VISIBLE else View.INVISIBLE
 
@@ -213,6 +339,10 @@ class SecondActivity : AppCompatActivity() {
                     if (symbolData.isShow) View.VISIBLE else View.INVISIBLE
             }
         }
+        setSymbols()
+    }
+
+    private fun setSymbols() {
         inputLs.forEachIndexed { index, symbolData ->
             when (index) {
                 0 -> binding.name0.text = symbolData.character.toString()
@@ -228,46 +358,71 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
-    private fun wordClickable() {
+    private fun currentWordCharacterClickable() {
+
         binding.name0.setOnClickListener {
+            if (inputLs[0].isShow)
+                return@setOnClickListener
+            existElementCount--
             inputLs[0].isShow = true
             inputLs[0] = SymbolData(-1, ' ')
-            checkWord()
+            relieseCurrentWordVisibility()
         }
         binding.name1.setOnClickListener {
+            if (inputLs[1].isShow)
+                return@setOnClickListener
+            existElementCount--
             inputLs[1].isShow = true
             inputLs[1] = SymbolData(-1, ' ')
-            checkWord()
+            relieseCurrentWordVisibility()
         }
         binding.name2.setOnClickListener {
+            if (inputLs[2].isShow)
+                return@setOnClickListener
+            existElementCount--
             inputLs[2].isShow = true
             inputLs[2] = SymbolData(-1, ' ')
-            checkWord()
+            relieseCurrentWordVisibility()
         }
         binding.name3.setOnClickListener {
+            if (inputLs[3].isShow)
+                return@setOnClickListener
+            existElementCount--
             inputLs[3].isShow = true
             inputLs[3] = SymbolData(-1, ' ')
-            checkWord()
+            relieseCurrentWordVisibility()
         }
         binding.name4.setOnClickListener {
+            if (inputLs[4].isShow)
+                return@setOnClickListener
+            existElementCount--
             inputLs[4].isShow = true
             inputLs[4] = SymbolData(-1, ' ')
-            checkWord()
+            relieseCurrentWordVisibility()
         }
         binding.name5.setOnClickListener {
+            if (inputLs[5].isShow)
+                return@setOnClickListener
+            existElementCount--
             inputLs[5].isShow = true
             inputLs[5] = SymbolData(-1, ' ')
-            checkWord()
+            relieseCurrentWordVisibility()
         }
         binding.name6.setOnClickListener {
+            if (inputLs[6].isShow)
+                return@setOnClickListener
+            existElementCount--
             inputLs[6].isShow = true
             inputLs[6] = SymbolData(-1, ' ')
-            checkWord()
+            relieseCurrentWordVisibility()
         }
         binding.name7.setOnClickListener {
+            if (inputLs[7].isShow)
+                return@setOnClickListener
+            existElementCount--
             inputLs[7].isShow = true
             inputLs[7] = SymbolData(-1, ' ')
-            checkWord()
+            relieseCurrentWordVisibility()
         }
     }
 

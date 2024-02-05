@@ -171,8 +171,8 @@
         <LinearLayout
             android:id="@+id/characters_ly_1"
             android:layout_width="395dp"
-            android:layout_below="@id/name_ly"
             android:layout_height="68dp"
+            android:layout_below="@id/name_ly"
             android:layout_marginTop="56dp"
             android:gravity="center">
 
@@ -354,7 +354,7 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/help_character_btn"
+            android:id="@+id/help_open_btn"
             android:layout_width="100dp"
             android:layout_height="44dp"
             android:layout_below="@id/characters_ly_2"
@@ -366,7 +366,7 @@
             android:textColor="@color/white" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/help_symbols_btn"
+            android:id="@+id/help_remove_btn"
             android:layout_width="100dp"
             android:layout_height="44dp"
             android:layout_below="@id/characters_ly_2"
@@ -379,9 +379,10 @@
             android:textColor="@color/white" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/next_btn"
             android:layout_width="130dp"
             android:layout_height="56dp"
-            android:layout_below="@id/help_character_btn"
+            android:layout_below="@id/help_open_btn"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="12dp"
