@@ -29,4 +29,15 @@
     </TextView>
 
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_page"
+        android:text="Asosiy sahifa"
+        android:background="@drawable/button_for_text"
+        android:layout_marginTop="16dp">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+
 </LinearLayout>

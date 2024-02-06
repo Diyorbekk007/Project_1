@@ -54,7 +54,7 @@ class SecondActivity : AppCompatActivity() {
              * barcha so`zlar to`ldirilganmi
              */
             if (existElementCount < (currentData?.word?.length ?: 0)) {
-                Toast.makeText(this, "Belgilani to`ldiring", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Belgilarni to`ldiring", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -75,12 +75,6 @@ class SecondActivity : AppCompatActivity() {
             if (currentIndex < lsQuest.size) {
                 currentIndex++
                 initializeNewWord()
-            } else {
-                val nextPage3 = findViewById<Button>(R.id.next_btn)
-                nextPage3.setOnClickListener() {
-                    val intent = Intent(this, ThirdActivity::class.java)
-                    startActivity(intent)
-                }
             }
         }
 
@@ -213,7 +207,6 @@ class SecondActivity : AppCompatActivity() {
         binding.character4.text = (lsCurrentCharacters.getOrNull(4)?.character ?: "").toString()
         binding.character5.text = (lsCurrentCharacters.getOrNull(5)?.character ?: "").toString()
         binding.character6.text = (lsCurrentCharacters.getOrNull(6)?.character ?: "").toString()
-        binding.character7.text = (lsCurrentCharacters.getOrNull(7)?.character ?: "").toString()
         binding.character9.text = (lsCurrentCharacters.getOrNull(9)?.character ?: "").toString()
         binding.character10.text = (lsCurrentCharacters.getOrNull(10)?.character ?: "").toString()
         binding.character11.text = (lsCurrentCharacters.getOrNull(11)?.character ?: "").toString()
@@ -247,9 +240,6 @@ class SecondActivity : AppCompatActivity() {
         }
         binding.character6.setOnClickListener {
             clickShuffleCharacter(it, 6)
-        }
-        binding.character7.setOnClickListener {
-            clickShuffleCharacter(it, 7)
         }
 
         binding.character9.setOnClickListener {
@@ -318,9 +308,6 @@ class SecondActivity : AppCompatActivity() {
                     if (symbolData.isShow) View.VISIBLE else View.INVISIBLE
 
                 6 -> binding.character6.visibility =
-                    if (symbolData.isShow) View.VISIBLE else View.INVISIBLE
-
-                7 -> binding.character7.visibility =
                     if (symbolData.isShow) View.VISIBLE else View.INVISIBLE
 
                 9 -> binding.character9.visibility =
@@ -431,6 +418,7 @@ class SecondActivity : AppCompatActivity() {
             relieseCurrentWordVisibility()
         }
     }
+
 
     override fun onDestroy() {
         super.onDestroy()
