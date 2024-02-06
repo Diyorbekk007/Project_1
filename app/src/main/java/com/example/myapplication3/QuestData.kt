@@ -88,6 +88,24 @@ fun loadQuest(): List<QuestData> {
             word = "Stars"
         )
     )
+    ls.add(
+        QuestData(
+            imageOne = R.drawable.lake1,
+            imageTwo = R.drawable.lake2,
+            imageThree = R.drawable.lake3,
+            imageFour = R.drawable.lake4,
+            word = "Lake"
+        )
+    )
+    ls.add(
+        QuestData(
+            imageOne = R.drawable.china1,
+            imageTwo = R.drawable.china2,
+            imageThree = R.drawable.china3,
+            imageFour = R.drawable.china4,
+            word = "China"
+        )
+    )
 
     return ls
 }
