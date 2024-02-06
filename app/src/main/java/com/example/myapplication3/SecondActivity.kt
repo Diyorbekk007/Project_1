@@ -72,15 +72,14 @@ class SecondActivity : AppCompatActivity() {
             /**
              * list malumotlari tugadi
              */
+            currentIndex++
             if (currentIndex < lsQuest.size) {
-                currentIndex++
                 initializeNewWord()
             } else {
-                val nextPage = findViewById<Button>(R.id.next_btn)
-                nextPage.setOnClickListener() {
-                    val intent = Intent(this, ThirdActivity::class.java)
-                    startActivity(intent)
-                }
+                val intent = Intent(this, ThirdActivity::class.java)
+                intent.putExtra("correctcount", correctCount)
+                intent.putExtra("errorcount", lsQuest.size - correctCount)
+                startActivity(intent)
             }
         }
 
