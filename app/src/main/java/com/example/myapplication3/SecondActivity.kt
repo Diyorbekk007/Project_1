@@ -241,7 +241,12 @@ class SecondActivity : AppCompatActivity() {
         binding.character6.setOnClickListener {
             clickShuffleCharacter(it, 6)
         }
-
+        binding.character7.setOnClickListener {
+            clickShuffleCharacter(it, 7)
+        }
+        binding.character8.setOnClickListener {
+            clickShuffleCharacter(it, 8)
+        }
         binding.character9.setOnClickListener {
             clickShuffleCharacter(it, 9)
         }
