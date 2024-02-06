@@ -75,6 +75,12 @@ class SecondActivity : AppCompatActivity() {
             if (currentIndex < lsQuest.size) {
                 currentIndex++
                 initializeNewWord()
+            } else {
+                val nextPage = findViewById<Button>(R.id.next_btn)
+                nextPage.setOnClickListener() {
+                    val intent = Intent(this, ThirdActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
 
@@ -207,6 +213,8 @@ class SecondActivity : AppCompatActivity() {
         binding.character4.text = (lsCurrentCharacters.getOrNull(4)?.character ?: "").toString()
         binding.character5.text = (lsCurrentCharacters.getOrNull(5)?.character ?: "").toString()
         binding.character6.text = (lsCurrentCharacters.getOrNull(6)?.character ?: "").toString()
+        binding.character7.text = (lsCurrentCharacters.getOrNull(7)?.character ?: "").toString()
+        binding.character8.text = (lsCurrentCharacters.getOrNull(8)?.character ?: "").toString()
         binding.character9.text = (lsCurrentCharacters.getOrNull(9)?.character ?: "").toString()
         binding.character10.text = (lsCurrentCharacters.getOrNull(10)?.character ?: "").toString()
         binding.character11.text = (lsCurrentCharacters.getOrNull(11)?.character ?: "").toString()
@@ -313,6 +321,12 @@ class SecondActivity : AppCompatActivity() {
                     if (symbolData.isShow) View.VISIBLE else View.INVISIBLE
 
                 6 -> binding.character6.visibility =
+                    if (symbolData.isShow) View.VISIBLE else View.INVISIBLE
+
+                7 -> binding.character6.visibility =
+                    if (symbolData.isShow) View.VISIBLE else View.INVISIBLE
+
+                8 -> binding.character6.visibility =
                     if (symbolData.isShow) View.VISIBLE else View.INVISIBLE
 
                 9 -> binding.character9.visibility =
